@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="tabTitle">Do You Wanna Go Out With Me?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Indie Flower', cursive;
+            background-color: #ffe6f2;
+            text-align: center;
+            color: #ff69b4;
+            transition: background-color 0.5s ease;
+        }
+        .container {
+            background-color: #ffccdd;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 4px 10px rgba(255, 105, 180, 0.3);
+            display: inline-block;
+            margin-top: 50px;
+        }
+        h1 {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 36px;
+        }
+        .buttons button {
+            background-color: #ff69b4;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.2s ease-in-out;
+        }
+        .buttons button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="mainPage">
+        <h1>Do you wanna go out with me, Naushu?</h1>
+        <img src="https://media.tenor.com/efbi1EpFlVUAAAAi/bugcat-capoo.gif" alt="Cute Capoo" class="gif">
+        <div class="buttons">
+            <button id="yesButton" onclick="yesClicked()">Yes</button>
+            <button id="noButton" onmouseover="moveButton()">No</button>
+        </div>
+    </div>
+    
+    <div class="container" id="yesPage" style="display: none;">
+        <h1>Yay! Let's go out, Naushu! 💖</h1>
+        <img src="https://media.tenor.com/YTw87WdiaasAAAAi/tkthao219-capoo.gif" alt="Happy Capoo">
+    </div>
+    
+    <script>
+        function yesClicked() {
+            document.getElementById("mainPage").style.display = "none";
+            document.getElementById("yesPage").style.display = "block";
+            document.body.style.backgroundColor = "#ffb6c1";
+            document.getElementById("tabTitle").textContent = "💖 Yay! 💖";
+        }
+        
+        function moveButton() {
+            let button = document.getElementById("noButton");
+            let x = Math.random() * (window.innerWidth - button.offsetWidth);
+            let y = Math.random() * (window.innerHeight - button.offsetHeight);
+            button.style.position = "absolute";
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+            document.body.style.backgroundColor = "#ffcccc";
+            document.getElementById("tabTitle").textContent = "😢 Don't Leave! 😢";
+        }
+    </script>
+</body>
+</html>
